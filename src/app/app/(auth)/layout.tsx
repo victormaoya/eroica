@@ -1,0 +1,14 @@
+// src/app/layout.tsx or src/app/(auth)/layout.tsx
+
+import { ClerkProvider } from '@clerk/nextjs'
+import { ReactNode } from 'react'
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  )
+}
