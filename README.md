@@ -8,7 +8,7 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
 
 - 🛍️ **Product Catalog** - Browse and search products with categories
 - 🛒 **Shopping Cart** - Add, remove, and manage items with persistent state
-- 💳 **Secure Checkout** - Stripe integration for payment processing  
+- 💳 **Secure Checkout** - Stripe integration for payment processing
 - 👤 **User Authentication** - Clerk-powered sign up/sign in system
 - 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
 - 🎨 **Modern UI** - shadcn/ui components with dark/light theme support
@@ -32,7 +32,7 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - PostgreSQL database
 - Stripe account
 - Clerk account
@@ -40,29 +40,32 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/victormaoya/eroica.git
    cd eroica
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env.local` file in the root directory:
+
    ```env
    # Database
    DATABASE_URL="postgresql://username:password@localhost:5432/eroica"
-   
+
    # Clerk Authentication
    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
    CLERK_SECRET_KEY=your_clerk_secret_key
    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-   
+
    # Stripe
    STRIPE_SECRET_KEY=your_stripe_secret_key
    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
@@ -70,6 +73,7 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
    ```
 
 4. **Set up the database**
+
    ```bash
    npx prisma generate
    npx prisma db push
@@ -77,6 +81,7 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
    ```
 
 5. **Run the development server**
+
    ```bash
    npm run dev
    ```
@@ -89,7 +94,7 @@ A modern e-commerce platform built with Next.js 15, featuring a clean design and
 src/
 ├── app/                 # App Router pages and layouts
 │   ├── (auth)/         # Authentication routes
-│   ├── (shop)/         # Shop-related routes  
+│   ├── (shop)/         # Shop-related routes
 │   ├── api/            # API routes
 │   ├── cart/           # Shopping cart page
 │   ├── checkout/       # Checkout flow
