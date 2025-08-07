@@ -4,6 +4,8 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { Inter } from 'next/font/google'
 import { AuthButtons } from '@/components/auth/auth-buttons'
 import Link from 'next/link'
+import { ThemeProvider } from 'next-themes'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -15,17 +17,30 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={inter.variable}>
-        <body className="min-h-screen bg-white text-gray-900 font-sans">
-          <header className="border-b shadow-sm sticky top-0 z-50 bg-white">
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-              <Link href="/" className="text-xl font-bold tracking-tight">
-                Eroica
-              </Link>
-              <AuthButtons />
-            </nav>
-          </header>
-          <main className="max-w-7xl mx-auto px-4 py-6">{children}</main>
+      <html lang='en' className={inter.variable} suppressHydrationWarning>
+        <body className='min-h-screen bg-background text-foreground font-sans antialiased'>
+          <ThemeProvider 
+            attribute='class' 
+            defaultTheme='system' 
+            enableSystem
+            disableTransitionOnChange
+          >
+            <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+              <div className='container flex h-14 items-center'>
+                <nav className='flex flex-1 items-center justify-between'>
+                  <Link
+                    href='/'
+                    className='text-xl font-bold tracking-tight hover:text-primary transition-colors'
+                  >
+                    Eroica
+                  </Link>
+                  <AuthButtons />
+                </nav>
+              </div>
+            </header>
+            <main className='container mx-auto py-6'>{children}</main>
+            <Toaster />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

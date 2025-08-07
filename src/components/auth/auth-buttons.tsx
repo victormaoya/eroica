@@ -5,25 +5,31 @@ import {
   SignedOut,
   UserButton,
   SignInButton,
-  SignUpButton
+  SignUpButton,
 } from '@clerk/nextjs'
 import { WelcomeUser } from './welcome-user'
+import { Button } from '@/components/ui/button'
+import { CartIcon } from '@/components/cart/cart-icon'
 
 export function AuthButtons() {
   return (
-    <div className="flex gap-4 items-center">
+    <div className='flex gap-4 items-center'>
+      <CartIcon />
+
       <SignedOut>
         <SignInButton>
-          <button className="text-sm hover:underline">Sign In</button>
+          <Button variant='ghost' size='sm'>
+            Sign In
+          </Button>
         </SignInButton>
         <SignUpButton>
-          <button className="text-sm hover:underline">Sign Up</button>
+          <Button size='sm'>Sign Up</Button>
         </SignUpButton>
       </SignedOut>
 
       <SignedIn>
         <WelcomeUser />
-        <UserButton afterSignOutUrl="/" />
+        <UserButton afterSignOutUrl='/' />
       </SignedIn>
     </div>
   )

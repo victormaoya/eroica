@@ -7,5 +7,7 @@ export function WelcomeUser() {
 
   if (!user) return null
 
-  return <p className='text-sm text-gray-600'>Welcome, {user.firstName}</p>
+  return (
+    <p className='text-sm text-muted-foreground'>Welcome, {user.firstName}</p>
+  )
 }
