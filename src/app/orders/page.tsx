@@ -27,7 +27,7 @@ export default async function OrdersPage() {
           <CardContent className='pt-6'>
             <div className='text-center py-8'>
               <p className='text-muted-foreground mb-4'>
-                You haven't placed any orders yet
+                You haven&apos;t placed any orders yet
               </p>
               <Button asChild>
                 <Link href='/'>Start Shopping</Link>

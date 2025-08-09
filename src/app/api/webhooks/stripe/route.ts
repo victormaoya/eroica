@@ -35,11 +35,17 @@ export async function POST(request: NextRequest) {
                 total: session.amount_total! / 100,
                 status: 'completed',
                 items: {
-                  create: itemsData.map((item: any) => ({
-                    productId: item.id,
-                    quantity: item.quantity,
-                    price: item.price,
-                  })),
+                  create: itemsData.map(
+                    (item: {
+                      id: string
+                      quantity: number
+                      price: number
+                    }) => ({
+                      productId: item.id,
+                      quantity: item.quantity,
+                      price: item.price,
+                    })
+                  ),
                 },
               },
             })

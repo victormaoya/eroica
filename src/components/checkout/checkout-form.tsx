@@ -1,12 +1,13 @@
 'use client'
 
-import { useCart, type CartItem } from '@/store/cart'
+import { useCart } from '@/store/cart'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function CheckoutForm() {
   const { items, clearCart } = useCart()
@@ -62,7 +63,7 @@ export function CheckoutForm() {
           <div className='text-center py-8'>
             <p className='text-muted-foreground'>Your cart is empty</p>
             <Button className='mt-4' asChild>
-              <a href='/'>Continue Shopping</a>
+              <Link href='/'>Continue Shopping</Link>
             </Button>
           </div>
         </CardContent>
