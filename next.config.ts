@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
@@ -6,10 +6,18 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
-        pathname: '/**'
-      }
-    ]
+        pathname: '/**',
+      },
+    ],
   },
-};
+  serverExternalPackages: ['@prisma/client', 'prisma'],
+  // Ensure Prisma generates the client during build
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.plugins = [...config.plugins]
+    }
+    return config
+  },
+}
 
-export default nextConfig;
+export default nextConfig
